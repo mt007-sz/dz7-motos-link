@@ -1,12 +1,19 @@
 import { topics } from '../shared/topics.js';
 
 // ===== Preencha os dados da loja aqui =====
+const WHATSAPP_NUMBER = '5561920051014';
+
 const STORE = {
   name: 'DZ7 Motos',
   tagline: 'Peças e serviços para a sua moto. Fale direto com a gente no WhatsApp.',
-  address: 'Águas Lindas de Goiás',
-  hours: 'Seg a Sex: 08h às 18h | Sáb: 08h às 13h',
+  address: '[ENDEREÇO DA LOJA], [CIDADE]',
+  hours: '[HORÁRIO DE ATENDIMENTO]',
 };
+
+function buildWhatsAppUrl(message) {
+  const text = encodeURIComponent(message);
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
+}
 
 const stroke = {
   fill: 'none',
@@ -77,7 +84,12 @@ export default function App() {
         <p className="tagline">{STORE.tagline}</p>
       </header>
 
-      <a className="cta" href="/go/principal">
+      <a
+        className="cta"
+        href={buildWhatsAppUrl('Olá! Vim pelo Instagram e gostaria de falar com a loja.')}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <svg width="28" height="28" viewBox="0 0 24 24" stroke="#fff" strokeWidth="2" {...stroke}>
           <path d="M3 21l1.65-4.9A8.5 8.5 0 1 1 8 19.4L3 21z" />
           <path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1.2-1.4-2-1-.8.7a3.6 3.6 0 0 1-1.6-1.6l.7-.8-1-2L9 9.5z" />
@@ -88,7 +100,13 @@ export default function App() {
       <section className="topics">
         <h2>Sobre o que você quer falar?</h2>
         {topics.map((t) => (
-          <a key={t.id} className="row" href={`/go/${t.id}`}>
+          <a
+            key={t.id}
+            className="row"
+            href={buildWhatsAppUrl(t.message || `Olá! Vim pelo Instagram e gostaria de falar sobre: ${t.title}`)}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <Icon name={t.icon} />
             <span className="row-text">
               <strong>{t.title}</strong>
