@@ -6,8 +6,8 @@ const WHATSAPP_NUMBER = '5561920051014';
 const STORE = {
   name: 'DZ7 Motos',
   tagline: 'Peças e serviços para a sua moto. Fale direto com a gente no WhatsApp.',
-  address: '[ENDEREÇO DA LOJA], [CIDADE]',
-  hours: '[HORÁRIO DE ATENDIMENTO]',
+  address: 'Águas Lindas de Goiás',
+  hours: 'Seg a Sex: 08h às 18h | Sáb: 08h às 13h',
 };
 
 function buildWhatsAppUrl(message) {
