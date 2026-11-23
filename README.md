@@ -2,7 +2,7 @@
 
 Página para o link da bio do Instagram. Feita com **React (Vite)** no visual e **Node + Express** no servidor.
 
-Cada botão aponta para `/go/<assunto>`. O Node registra o clique em `data/cliques.log` e redireciona para o WhatsApp com uma mensagem pronta. O número da loja fica só no servidor (`.env`).
+Cada botão aponta para `<assunto>`. O Node registra o clique em `data/cliques.log` e redireciona para o WhatsApp com uma mensagem pronta. O número da loja fica só no servidor (`.env`).
 
 ## Como rodar
 
